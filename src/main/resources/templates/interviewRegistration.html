@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Registration</title>
+    <th:block th:insert="base :: header"></th:block>
+    <style>
+        body{
+            background-image:url("https://res.cloudinary.com/dlj6qreoq/image/upload/v1559506319/Background-Picture-Html2_vzfvpz.jpg") ;
+        }
+        h2 {
+            font:italic 5vw Baskerville,'fantasy';
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<div th:replace="base:: nav"></div>
+
+<div class="container">
+    <div class="card border-0 shadow my-5">
+        <div class="card-body p-5">
+            <h4>Interview Registration</h4>
+
+            <form method="post" th:action="@{/processIntRegister}" th:object="${interview}" >
+                <input type="hidden" th:field="*{id}"/>
+<!--                <span name="job" id="job" class="customer-select" th:field="*{job}">-->
+<!--                    <p><b>Position: </b> <span th:text="${job.positionTitle}"></span></p>-->
+<!--                </span>-->
+                <select name="job" id="job" class="customer-select" th:field="*{job}">
+                <option th:each="al: ${jobs}"
+                    th:value="${al.id}"
+                    th:text="${al.positionTitle}">
+                </option><br/>
+                </select>
+                <label class="mr-sm-2 mb-0">Date </label>
+                <input type="text"  class="form-control mr-sm-2 mb-2 mb-sm-0"
+                       th:field="*{date}"/><br/><br>
+
+                <label class="mr-sm-2 mb-0">Available Times: </label>
+
+                <label><input type="radio" value="09:00 am" th:field="*{intTime}"/>09:00 am</label>
+                <label><input type="radio" value="10:00 am" th:field="*{intTime}"/>10:00 am</label>
+                <label><input type="radio" value="11:00 am" th:field="*{intTime}"/>11:00 am</label>
+                <label><input type="radio" value="01:00 pm" th:field="*{intTime}"/>01:00 pm</label>
+                <label><input type="radio" value="02:00 pm" th:field="*{intTime}"/>02:00 pm</label>
+                <label><input type="radio" value="03:00 pm" th:field="*{intTime}"/>03:00 pm</label>
+                <label><input type="radio" value="04:00 pm" th:field="*{intTime}"/>04:00 pm</label><br/>
+
+
+<!--                What Job Will you apply to: <select name="album" id="album" class="customer-select" th:field="*{album}">-->
+<!--                <option th:each="al: ${albums}"-->
+<!--                        th:value="${al.id}"-->
+<!--                        th:text="${al.name}">-->
+<!--                </option><br/>-->
+
+                <button type="submit" class="btn btn-default">Submit</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

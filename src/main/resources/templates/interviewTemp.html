@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:replace="base:: nav"></div>
+
+<div class="container">
+    <div class="card border-0 shadow my-5">
+        <div class="card-body p-5">
+            <h4>Interview Questions</h4>
+
+            <form method="post"  th:action="@{/intQuest}" th:object="${interview}"
+                  enctype="multipart/form-data">
+                  <!--th:object="${user}" method="post">-->
+                <!--<input type="hidden" th:field="*{id}"/>-->
+                <!--<label th:inline="text" class="mr-sm-2 mb-0"></label><br><br>-->
+
+                <span th:inline="text" >[[${interview.behQuest1}]]</span>
+                <div class="form-group">
+                    <label for="answer1"></label>
+                    <span th:field="*{answer1}"><textarea class="form-control" id="answer1" rows="6">
+
+                    </textarea> </span>
+                </div>
+
+                <br>
+
+                <label class="mr-sm-2 mb-0">[[${interview.behQuest2}]]</label><br><br>
+                <div class="form-group">
+                    <label for="answer2"></label>
+                    <span th:field="*{answer2}"> <textarea class="form-control" id="answer2" rows="6">
+                    </textarea></span>
+                </div>
+
+                <br>
+
+                <label class="mr-sm-2 mb-0">[[${interview.behQuest3}]]</label><br><br>
+                <div class="form-group">
+                    <label for="answer3"></label>
+                    <span th:field="*{answer3}">
+                    <textarea class="form-control" id="answer3" rows="6">
+
+                    </textarea></span>
+                </div>
+
+                <br>
+
+                <label class="mr-sm-2 mb-0">[[${interview.jobQuest1}]]</label><br><br>
+                <div class="form-group">
+                    <label for="answer4"></label>
+                    <span th:field="*{answer4}"><textarea class="form-control" id="answer4" rows="6">
+
+                    </textarea>
+                        </span>
+                </div>
+
+                <br>
+
+                <label class="mr-sm-2 mb-0">[[${interview.jobQuest2}]]</label><br><br>
+                <div class="form-group">
+                    <label for="answer5"></label>
+                    <span th:field="*{answer5}"><textarea class="form-control" id="answer5" rows="6">
+
+                    </textarea></span>
+                </div>
+
+                <br>
+
+                <label class="mr-sm-2 mb-0">[[${interview.jobQuest3}]]</label><br><br>
+                <div class="form-group">
+                    <label for="answer6"></label>
+                    <span th:field="*{answer6}"><textarea class="form-control" id="answer6" rows="6">
+
+                    </textarea>
+                        </span>
+                </div>
+
+                <button type="submit" class="btn btn-default">Done</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+<div th:replace="base:: footer"></div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Registration</title>
+    <th:block th:insert="base :: header"></th:block>
+    <style>
+        body{
+            background-image:url("https://res.cloudinary.com/dlj6qreoq/image/upload/v1559506319/Background-Picture-Html2_vzfvpz.jpg") ;
+        }
+        h2 {
+            font:italic 5vw Baskerville,'fantasy';
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<div th:replace="base:: nav"></div>
+
+<div class="container">
+    <div class="card border-0 shadow my-5">
+        <div class="card-body p-5">
+    <h1>Interviews</h1>
+    <table class="table table-borderless">
+        <thead></thead>
+        <tbody>
+
+        <tr th:each="a : ${interviews}">
+            <th scope="row"></th>
+
+            <td>[[${a.date}]] [[${a.intTime}]]<br/>
+
+
+            <td> <a href="/intQuest" class="btn btn-primary btn-block" name="id" th:onclick="'alert(\'You have 30 minutes to finish your interview .\'); '">Start Interview</a></td>
+
+        </tr>
+        </tbody>
+
+    </table>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

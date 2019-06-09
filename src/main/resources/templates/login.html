@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Login Page</title>
+    <th:block th:insert="base :: header"></th:block>
+    <style>
+        body{
+            background-image:url("https://res.cloudinary.com/dlj6qreoq/image/upload/v1559506319/Background-Picture-Html2_vzfvpz.jpg") ;
+        }
+        h2 {
+            font:italic 5vw Baskerville,'fantasy';
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div th:replace="base:: nav"></div>
+
+    <div class="container">
+        <div class="card border-0 shadow my-5">
+            <div class="card-body p-5">
+        <h2> User Login</h2>
+        <div th:if="${param.error}">
+            Invalid username or password
+        </div>
+
+    <div th:if="${param.logout}">
+        You have been logged out
+    </div>
+
+    <form th:action="@{/login}" method="post">
+
+            <label class="mr-sm-2 mb-0">User name</label> <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0"
+                                                                 name="username"/>
+
+
+        <label class="mr-sm-2 mb-0">Password </label> <input type="password"  class="form-control mr-sm-2 mb-2 mb-sm-0"
+                                                             name="password"/>
+
+        <div><input type="submit" value="Sign In"/></div>
+    </form>
+    </div>
+
+        </div>
+    </div>
+
+    <div th:replace="base:: footer"></div>
+
+</body>
+</html>
